@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
+def register_user(request):
+	return render(request, 'register.html', {})
+
 def home(request):
 	if request.method == "POST":
 		username = request.POST['username']
