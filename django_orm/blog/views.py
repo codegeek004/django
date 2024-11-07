@@ -1,9 +1,22 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .forms import SignUpForm
+
 
 def register_user(request):
-	return render(request, 'register.html', {})
+	if request.method == 'POST':
+		form = SignUpForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data['userame']
+			password = form.cleaned_data['password1']
+			user = authenticate(username=username, password=password)
+			login(request, user)
+			messages.success(request, "You have registered in successfully...")
+	else:
+		form = SignUpForm()
+		return render(request, 'register.html', {'form': form})
 
 def home(request):
 	if request.method == "POST":
