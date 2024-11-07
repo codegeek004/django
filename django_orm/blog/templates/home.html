@@ -6,7 +6,7 @@
 
 <form method="POST" accept="{% url 'home' %}">
 	{% csrf_token %}
-	<form>
+
   <div class="mb-3">
     <input type="text" class="form-control" name="username" placeholder="username">
   </div>
@@ -14,8 +14,8 @@
     <input type="password" class="form-control" name="password" placeholder="password">
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <button type="submit" class="btn btn-secondary">Submit</button>
+
 </form>
 
 {% endblock %}
