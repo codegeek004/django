@@ -1,21 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="col-md-6 offset-md-3">
-	<h1>Login</h1>
-</div>
+
 
 <form method="POST" accept="{% url 'home' %}">
 	{% csrf_token %}
+		{% if user.is_authenticated %}
+			<h1>Records...</h1>
+			{% if records %}
+				{% for record in records %}
+					{{record}}<br/>
+				{% endfor %}
+			{% endif %}
+		{% else %}
+				<h1>Login</h1>
 
-  <div class="mb-3">
-    <input type="text" class="form-control" name="username" placeholder="username">
-  </div>
-  <div class="mb-3">
-    <input type="password" class="form-control" name="password" placeholder="password">
-  </div>
+		  <div class="mb-3">
+		    <input type="text" class="form-control" name="username" placeholder="username">
+		  </div>
+		  <div class="mb-3">
+		    <input type="password" class="form-control" name="password" placeholder="password">
+		  </div>
 
-  <button type="submit" class="btn btn-secondary">Submit</button>
+		  <button type="submit" class="btn btn-secondary">Submit</button>
+		{% endif %}
 
 </form>
-
+</div>
 {% endblock %}
