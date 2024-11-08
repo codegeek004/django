@@ -4,7 +4,7 @@
 <div class="col-md-6 offset-md-3">
 
 	<h1>update record</h1>
-	<form method="POST" accept="{% url 'update_record' pk=record.pk %}">
+	<form method="POST" accept="{% url 'update_record' record.id %}">
 		{% csrf_token %}
 		{{form.as_p}}
 
