@@ -1,5 +1,0 @@
-venv
-djangodb/website/__pycache__/
-djangodb/website/migrations/__pycache__/
-djangodb/website/__pycache__/admin.cpython-311.pyc
-djangodb/website/__pycache__/models.cpython-311.pyc
